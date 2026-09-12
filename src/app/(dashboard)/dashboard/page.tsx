@@ -78,12 +78,38 @@ export default function DashboardPage() {
         <div className="bg-accent text-accent-foreground rounded-2xl p-5">
           <div className="flex justify-between">
             <span className="text-[9px] uppercase tracking-wider font-extrabold">
-              Data integrity
+              Customers inputted
             </span>
-            <span className="mono text-[9px]">100%</span>
+            <span className="mono text-[9px]">7D</span>
           </div>
-          <div className="display text-4xl font-extrabold mt-4">Clean</div>
-          <div className="text-xs mt-2">No duplicate IDs detected</div>
+
+          <div className="mt-4">
+            <svg viewBox="0 0 220 70" className="w-full h-[70px]" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="inputTrend" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="currentColor" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0,60 L37,41 L73,51 L110,29 L147,37 L183,20 L220,6 L220,70 L0,70 Z"
+                fill="url(#inputTrend)"
+              />
+              <polyline
+                points="0,60 37,41 73,51 110,29 147,37 183,20 220,6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <div className="flex justify-between text-[9px] font-bold mt-1 opacity-70">
+              {["07", "08", "09", "10", "11", "12", "13"].map((d) => (
+                <span key={d}>{d}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
