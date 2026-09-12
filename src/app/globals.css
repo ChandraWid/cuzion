@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: "Bricolage Grotesque", sans-serif;
+  --font-display: "Fraunces", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ---- Light theme ---- */
+  --background: #f7f7f3;
+  --surface: #ffffff;
+  --surface-soft: #efefe9;
+  --foreground: #111111;
+  --muted: #777770;
+  --line: #deded7;
+
+  /* Brand accent: replaces the former acid-green (#c8ff35) per PRD 4.4 */
+  --accent: #baccd0;
+  --accent-strong: #7f99a1;
+  --accent-foreground: #111111;
+
+  --success-bg: #e3efe6;
+  --success-text: #2f6b45;
+
+  --warning-bg: #fff5d8;
+  --warning-text: #8b6500;
+
+  --danger-bg: #ffebe7;
+  --danger-text: #a33222;
+
+  --online-dot: #4d9a6a;
+}
+
+.dark {
+  /* ---- Dark theme ---- */
+  --background: #0e0e0e;
+  --surface: #171715;
+  --surface-soft: #211f1c;
+  --foreground: #f4f4f0;
+  --muted: #9a988e;
+  --line: #2c2a26;
+
+  /* Accent shifted brighter/more saturated for contrast on dark surfaces */
+  --accent: #9fb7bd;
+  --accent-strong: #c7d9dd;
+  --accent-foreground: #0e0e0e;
+
+  --success-bg: #163524;
+  --success-text: #7cd6a0;
+
+  --warning-bg: #3a2f10;
+  --warning-text: #f0c85c;
+
+  --danger-bg: #3a1c17;
+  --danger-text: #ff9d8b;
+
+  --online-dot: #5fbf87;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-body);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Layered geometric background, tinted with the brand accent */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background: radial-gradient(circle at 80% 0%, rgba(186, 204, 208, 0.24), transparent 26%),
+    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
+
+  background-size: auto, 32px 32px, 32px 32px;
+
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.65) 45%, transparent 85%);
+}
+
+.dark body::before {
+  background: radial-gradient(circle at 80% 0%, rgba(159, 183, 189, 0.14), transparent 26%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+
+.display {
+  font-family: var(--font-display);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.accent-shadow {
+  box-shadow: 5px 5px 0 var(--foreground);
+}
+
+.soft-shadow {
+  box-shadow: 0 15px 40px rgba(17, 17, 17, 0.05);
+}
+
+.dark .soft-shadow {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.page-reveal {
+  animation: pageReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-item.active {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.nav-item.active .nav-icon {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 20px;
+}
+
+.calendar-cell {
+  min-height: 105px;
+}
+
+.projection-bar {
+  background: var(--accent);
+  height: 8px;
+  border-radius: 999px;
+}
+
+/* Material Symbols default rendering */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: middle;
+}
