@@ -27,8 +27,8 @@ export const customers = pgTable("customers", {
 
 /**
  * Daily entry log ("Customer Summary" / sidebar: "Customer").
- * Append-only per PRD 1.4 non-goals. Business rules (7-day cooldown,
- * 4-per-month cap) are computed server-side against this table at write time.
+ * Append-only. Business rules (7-day cooldown, 4-per-month cap) are computed
+ * server-side against this table at write time.
  */
 export const recapEntries = pgTable(
   "recap_entries",
@@ -87,8 +87,8 @@ export const projectionEntries = pgTable(
 );
 
 /**
- * Single hardcoded admin account (PRD section 3). Password is stored hashed
- * (bcrypt) — never plaintext — even though there is only one row for v1.
+ * Single hardcoded admin account. Password is stored hashed (bcrypt) —
+ * never plaintext — even though there is only one row for v1.
  */
 export const adminAccounts = pgTable("admin_accounts", {
   id: uuid("id").defaultRandom().primaryKey(),

@@ -4,8 +4,8 @@ interface IconProps {
 }
 
 /**
- * Renders a Google Material Symbol by ligature name (PRD 4.3 — all app
- * iconography except the brand logo uses Material Symbols for consistency).
+ * Renders a Google Material Symbol by ligature name. All app iconography
+ * except the brand logo uses Material Symbols for consistency.
  * Example: <Icon name="dashboard" />
  */
 export function Icon({ name, className = "" }: IconProps) {

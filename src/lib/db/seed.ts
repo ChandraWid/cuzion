@@ -1,9 +1,9 @@
 /**
- * One-off seed script for the single v1 admin account (PRD section 3).
+ * One-off seed script for the single v1 admin account.
  * Run with: npx tsx src/lib/db/seed.ts
  *
  * The password is hashed with bcrypt before being written to the database —
- * per PRD 3.4 it must never be stored or checked as plaintext.
+ * it must never be stored or checked as plaintext.
  */
 import bcrypt from "bcryptjs";
 import { db } from "./index";

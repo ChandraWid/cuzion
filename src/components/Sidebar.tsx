@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { AppIcon, type AppIconName } from "./AppIcon";
 
-// Sidebar display labels per PRD section 5.1 — note these differ from the
-// internal feature names used in the PRD's functional requirements section.
+// Sidebar display labels — these intentionally differ from the internal
+// route/feature names used elsewhere in the codebase.
 const NAV_ITEMS: { href: string; label: string; sublabel: string; icon: AppIconName }[] = [
   {
     href: "/dashboard",

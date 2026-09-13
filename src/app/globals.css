@@ -15,7 +15,7 @@
   --muted: #777770;
   --line: #deded7;
 
-  /* Brand accent: replaces the former acid-green (#c8ff35) per PRD 4.4 */
+  /* Brand accent: replaces the former acid-green (#c8ff35) */
   --accent: #baccd0;
   --accent-strong: #7f99a1;
   --accent-foreground: #111111;

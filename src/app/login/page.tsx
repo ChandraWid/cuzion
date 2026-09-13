@@ -28,7 +28,7 @@ export default function LoginPage() {
       });
 
       if (!res.ok) {
-        // PRD 3.3: generic error, never reveal which field was wrong
+        // Generic error — never reveal which field was wrong
         setError("Invalid email or password.");
         return;
       }

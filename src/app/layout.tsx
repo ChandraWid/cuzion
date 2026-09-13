@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 // Runs before paint to avoid a light/dark flash: reads the persisted
-// preference (PRD 4.4) and falls back to system preference on first load.
+// preference and falls back to system preference on first load.
 const themeInitScript = `
 (function () {
   try {

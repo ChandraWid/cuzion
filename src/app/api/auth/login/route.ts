@@ -11,7 +11,7 @@ const loginSchema = z.object({
   password: z.string().min(1),
 });
 
-// PRD 3.4: rate-limit login attempts to prevent brute-force guessing.
+// Rate-limit login attempts to prevent brute-force guessing.
 // This in-memory limiter is a placeholder for a production-grade store
 // (e.g. Redis) behind a load balancer.
 const attempts = new Map<string, { count: number; resetAt: number }>();
@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
       count: (entry?.resetAt ?? 0) > now ? entry!.count + 1 : 1,
       resetAt: now + WINDOW_MS,
     });
-    // PRD 3.3: generic error — never reveal which field was wrong.
+    // Generic error — never reveal which field was wrong.
     return NextResponse.json({ error: "Invalid email or password." }, { status: 401 });
   }
 

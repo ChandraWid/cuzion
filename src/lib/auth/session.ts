@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 
 const SESSION_COOKIE = "cuzion_session";
-const SESSION_DURATION_SECONDS = 60 * 60 * 24 * 7; // 7 days, per PRD 3.3
+const SESSION_DURATION_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
 function getSecretKey() {
   const secret = process.env.SESSION_SECRET ?? "";
